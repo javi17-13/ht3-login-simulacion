@@ -4,11 +4,13 @@
  */
 package com.cesarlopez.controller;
 
+import com.cesarlopez.view.BienvenidaView;
 import com.cesarlopez.view.LoginView;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
 
@@ -30,6 +32,28 @@ public class SceneManager {
         }
     }
 
+    public void ventanaBienvenida(){
+        try {
+            this.escenarioSecundario = new Stage();
+            this.escenarioSecundario.initStyle(StageStyle.TRANSPARENT);
+            this.escenarioSecundario.initModality(Modality.APPLICATION_MODAL);
+            
+            BienvenidaView Bienvenida =  new BienvenidaView();
+            this.escenaPrincipal = new Scene (Bienvenida , 15 , 25);
+            this.escenarioSecundario.setScene(escenaPrincipal);
+            this.escenarioSecundario.sizeToScene();
+            
+        } catch (NullPointerException objetoNulo) {
+            JOptionPane.showMessageDialog(null, "Error de objeto nulo: Ventana Login");
+            objetoNulo.printStackTrace(); //muestra todo el camino del error
+        } catch (Exception errorPadre) {
+            JOptionPane.showMessageDialog(null, "Error padre: metodo Ventana Login");
+            errorPadre.printStackTrace();
+        }
+    }
+    
+    
+    
     public void ventanaLogin() {
         
         try {
