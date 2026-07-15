@@ -4,7 +4,9 @@
  */
 package com.cesarlopez.view;
 
+import com.cesarlopez.controller.imageController;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -83,11 +85,18 @@ public class LoginView extends BorderPane {
         formulario.add(lblClave, 0, 1);
         formulario.add(pwdClave, 1, 1);
 
-        imgLogoLogin = new ImageView();
+        imgLogoLogin = new ImageView(new imageController().getImageLogin("logo"));
+        imgLogoLogin.setFitWidth(200);
+        imgLogoLogin.setFitHeight(100);
+        imgLogoLogin.setCache(true);
+        
+        cajaVertical.setAlignment(Pos.CENTER);
+        
+        
 
         btnIniciarSesion = new Button("Iniciar sesion");
 
-        cajaVertical.getChildren().addAll(formulario);
+        cajaVertical.getChildren().addAll(imgLogoLogin,formulario, btnIniciarSesion);
 
         this.setCenter(cajaVertical);
 
