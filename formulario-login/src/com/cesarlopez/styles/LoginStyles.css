@@ -13,18 +13,19 @@ TextField.empty{
     
 }
 
-passWordField.empty{
+PasswordField.empty{
     -fx-border-color: orange;
     -fx-border-width: 2px;
 }
 
-TextField.error{
+
+textfield.error{
     -fx-border-color: red;
     -fx-border-width: 2px;
     
 }
 
-passWordField.error{
+PasswordField.error {
     -fx-border-color: red;
     -fx-border-width: 2px;
 }

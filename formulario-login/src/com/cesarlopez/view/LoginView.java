@@ -33,8 +33,8 @@ import javafx.scene.paint.Paint;
 public class LoginView extends BorderPane {
 
     private static LoginView instanciaLoginView;
-    private String RUTA_ESTILOS ="/com/cesarlopez/styles/";
-    
+    private String RUTA_ESTILOS = "/com/cesarlopez/styles/";
+
     private Button btnCerrarVentana;
     private Label lblTituloVentana;
     private HBox barraDeOpciones;
@@ -47,9 +47,7 @@ public class LoginView extends BorderPane {
     private GridPane formulario;
     private ImageView imgLogoLogin;
     private Button btnIniciarSesion;
-   
-    
-    
+
     private LoginView() {
         this.getStylesheets().add(RUTA_ESTILOS + "LoginStyles.css");
         this.setPadding(new Insets(15));
@@ -73,7 +71,6 @@ public class LoginView extends BorderPane {
 
         this.setTop(barraDeOpciones);
 
-        //objetos del formulario 
         cajaVertical = new VBox();
         formulario = new GridPane();
 
@@ -93,17 +90,23 @@ public class LoginView extends BorderPane {
         imgLogoLogin.setFitWidth(200);
         imgLogoLogin.setFitHeight(100);
         imgLogoLogin.setCache(true);
-        
+        cajaVertical.setSpacing(20);
         cajaVertical.setAlignment(Pos.CENTER);
-        
-        
 
         btnIniciarSesion = new Button("Iniciar sesion");
 
-        cajaVertical.getChildren().addAll(imgLogoLogin,formulario, btnIniciarSesion);
-
+        cajaVertical.getChildren().addAll(imgLogoLogin, formulario, btnIniciarSesion);
+        
         this.setCenter(cajaVertical);
 
+    }
+
+    public String getRUTA_ESTILOS() {
+        return RUTA_ESTILOS;
+    }
+
+    public void setRUTA_ESTILOS(String RUTA_ESTILOS) {
+        this.RUTA_ESTILOS = RUTA_ESTILOS;
     }
 
     public Button getBtnCerrarVentana() {
@@ -223,6 +226,5 @@ public class LoginView extends BorderPane {
     public void setBtnIniciarSesion(Button btnIniciarSesion) {
         this.btnIniciarSesion = btnIniciarSesion;
     }
-    
-    
+
 }
